@@ -1,0 +1,55 @@
+<script>
+function run(){
+var command = document.getElementById("com").value
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.48.79/cgi-bin/kube.py?command="+ command , true)
+xhr.send()
+xhr.onload = function (){
+var out=xhr.responseText;
+document.getElementById("out").innerHTML=out;
+}
+}
+</script>
+<html>
+<head>
+<style>
+body {
+  background-image: url('https://i.pinimg.com/originals/36/e4/d0/36e4d0b856694fc471344b644a1dd6e4.gif');
+    background-repeat: no-repeat;
+      background-attachment: fixed;
+        background-size: cover
+}
+.header {
+  padding: 8px;
+    text-align: center;
+      color: white;
+  font-size: 25px;
+}
+.myDiv {
+   background-color: white;
+    text-align: center;
+     font-size: 40px;
+      color: black;
+         border: 5px outset blue;
+}
+.op {
+ text-align: center;
+  font-size: 25px;
+   color: white;
+}
+</style>
+ </head>
+ <body>
+ <div class="header">
+   <h1>kubernetes Web Application</h1>
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ [root@Host$] <input id='com' type='text' size="30">
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ <b><h1><button style="background-color: FFFF00; box-shadow: 0 8px; padding:12px 28px; border-radius: 8px;" onclick="run()" class="button"> RUN </button></h1></b>
+ </div>
